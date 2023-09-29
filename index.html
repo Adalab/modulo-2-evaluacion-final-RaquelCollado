@@ -8,11 +8,19 @@
   </head>
   <body class="body">
     <h1>Buscador de series</h1>
-    <input class="input js-input" type="text" value="" />
-    <button class="btn js-btn" type="submit">Buscar</button>
-    <section class="series js-series"></section>
-    <h2>Favoritas</h2>
-    <section class="favorites js-favorites"></section>
+    <form action="">
+      <input class="input js-input" type="text" value="" />
+      <input class="btn js-btn" type="submit" />
+    </form>
+    <div class="container">
+      <section class="series js-series">
+        <ul class="ulseries js-ulseries"></ul>
+      </section>
+      <section class="favorites js-favorites">
+        <h2>Favoritas</h2>
+        <ul class="ul favorites js-ulfavorites"></ul>
+      </section>
+    </div>
     <script src="./js/main.js"></script>
   </body>
 </html>

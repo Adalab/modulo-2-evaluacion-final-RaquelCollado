@@ -4,8 +4,6 @@
   background-color: lightseagreen;
   padding-left: 2rem;
   padding-top: 2rem;
-  border: 5px solid white;
-  border-radius: 30px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .input {
@@ -29,4 +27,15 @@
       inset 0px 10px 5px 5px rgba(0, 0, 0, 0.3);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
+}
+.ulseries{
+  list-style: none;
+}
+.ulfavorites{
+  list-style: none;
+}
+.container{
+ display: flex;
+ flex-direction: row-reverse;
+ justify-content: space-around;
 }
