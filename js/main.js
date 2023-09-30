@@ -42,8 +42,8 @@ function handleFavorites(event) {
   serieFavorite = serieList.find( serie => serie.show.id = idSerie);
   console.log(serieFavorite);
   const imgDefault = `//via.placeholder.com/210x295/ffffff/666666/?text=TV`;
-  const imgSrc = idSerie.image && idSerie.image.medium ? idSerie.image.medium : imgDefault;
-  favoriteSection.innerHTML += `<li id=${idSerie} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${idSerie.name}</h2></li>`;
+  const imgSrc = serieFavorite.show.image && serieFavorite.show.image.medium ? serieFavorite.show.image.medium : imgDefault;
+  favoriteSection.innerHTML += `<li id=${serieFavorite.show.id} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${serieFavorite.show.name}</h2></li>`;
   }
 // addEventToSeries  me permite añadir las series favoritas elegidas (click) a mi lista de series favoritas.
 function addEventToSeries() {
