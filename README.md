@@ -8,7 +8,7 @@ El ejercicio consiste en desarrollar una aplicación web de búsqueda de series 
 https://github.com/Adalab/modulo-2-evaluacion-final-RaquelCollado.git
 ``` 
 ```
-  git clone
+git clone
 ```   
 
 - ❗ Instala las dependencias del proyecto utilizando npm:
