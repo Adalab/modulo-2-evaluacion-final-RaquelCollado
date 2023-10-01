@@ -9,7 +9,7 @@ const favoriteSection = document.querySelector(".js-favorites");
 //estas son mis variables para guardar la info que me genera la API.
 let serieList = [];
 let serieFavorite = [];
-//const serieLS = JSON.parse(localStorage.getItem("serie"));
+const serieLS = JSON.parse(localStorage.getItem("serie"));
 
 function handleClick(event) {
   event.preventDefault();
@@ -21,7 +21,7 @@ function handleClick(event) {
     .then((dataApi) => {
       //guardo los datos en el array que he creado.
       serieList = dataApi;
-      //localStorage.setItem("serie",JSON.stringify(serieFavorite));
+      
       //bucle listado
       for (const serie of dataApi) {
         //me pone la imagen por defecto en las que no la tienen.
@@ -35,16 +35,22 @@ function handleClick(event) {
     });
 }
 //handleFavorites crea las series en favoritos a traves de su id .
-//Busca paleta por paleta el id de la paleta que clico y la crea y le cambia la clase en sectionSerie .
 function handleFavorites(event) {
   event.preventDefault();
   const idSerie = event.currentTarget.id;
   serieFavorite = serieList.find( serie => serie.show.id = idSerie);
-  console.log(serieFavorite);
+  //añado o elimino la clase al clicar
+  event.currentTarget.classList.add("cardFavorite");
+  event.currentTarget.classList.remove("card");
+  //imagen por defecto en caso de no tener.
   const imgDefault = `//via.placeholder.com/210x295/ffffff/666666/?text=TV`;
   const imgSrc = serieFavorite.show.image && serieFavorite.show.image.medium ? serieFavorite.show.image.medium : imgDefault;
-  favoriteSection.innerHTML += `<li id=${serieFavorite.show.id} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${serieFavorite.show.name}</h2></li>`;
+  //ponga idSerie o serieFavorite hace lo mismo
+  favoriteSection.innerHTML += `<li id=${serieFavorite} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${serieFavorite.show.name}</h2></li>`;
+  console.log(serieList);
+  localStorage.setItem("serie",JSON.stringify(serieFavorite));
   }
+
 // addEventToSeries  me permite añadir las series favoritas elegidas (click) a mi lista de series favoritas.
 function addEventToSeries() {
   const allSeries = document.querySelectorAll(".js-card");
@@ -52,4 +58,5 @@ function addEventToSeries() {
   serie.addEventListener("click", handleFavorites);
   }
 }
+
 btnElement.addEventListener("click", handleClick);
