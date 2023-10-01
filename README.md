@@ -2,10 +2,13 @@
 El ejercicio consiste en desarrollar una aplicación web de búsqueda de series de TV que permite des/marcar las series como favoritas y guardarlas en local storage.
 
 ## Instrucciones de Uso
-- 📍 Clona este repositorio en tu máquina local usando el siguiente comando:    
- 
+- 📍 Clona este repositorio en tu máquina local usando el siguiente comando:
+  
+ ```
+https://github.com/Adalab/modulo-2-evaluacion-final-RaquelCollado.git
+``` 
 ```
- [git clone](https://github.com/Adalab/modulo-2-evaluacion-final-RaquelCollado.git)
+  git clone
 ```   
 
 - ❗ Instala las dependencias del proyecto utilizando npm:
