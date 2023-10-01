@@ -5,7 +5,7 @@ El ejercicio consiste en desarrollar una aplicación web de búsqueda de series 
 - 📍 Clona este repositorio en tu máquina local usando el siguiente comando:    
  
 ```
-git clone [https://github.com/Adalab/modulo-2-evaluacion-final-RaquelCollado.git](https://github.com/Adalab/modulo-2-evaluacion-final-RaquelCollado.git)
+ [git clone](https://github.com/Adalab/modulo-2-evaluacion-final-RaquelCollado.git)
 ```   
 
 - ❗ Instala las dependencias del proyecto utilizando npm:
