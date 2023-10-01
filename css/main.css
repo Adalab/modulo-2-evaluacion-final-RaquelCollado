@@ -13,7 +13,6 @@
   padding: 15px;
   text-align: center;
   background-color: #b9c7da;
-  font-family: 'CoreCircus', sans-serif;
   border-radius: 15px;
   font-size: 16px;
   box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
@@ -26,8 +25,6 @@
 .btn {
     color: black ;
     background-color: darkgrey;
-    font-style:;
-    font-family: 'CoreCircus', sans-serif;
     width: 80px; 
     height: 30px;
     border-radius: 10px;
@@ -50,7 +47,6 @@
   margin-top: 65px;
 }
 .ulfavorites{
-  
   list-style: none;
 }
 .image{

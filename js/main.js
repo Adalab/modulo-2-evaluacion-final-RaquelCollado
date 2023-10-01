@@ -10,13 +10,12 @@ const favoriteSection = document.querySelector(".js-ulFavorites");
 let serieList = [];
 let serieFavorite = [];
 //Local Storage
-//const serieLS = JSON.parse(localStorage.getItem("serie"));
+const serieLS = JSON.parse(localStorage.getItem("serie"));
 
 
 //función cuando hago click en buscar.
 function handleClick(event) {
   event.preventDefault();
-
 
   //pagina vacia al cargar.
   serieSection.innerHTML = "";
@@ -24,17 +23,17 @@ function handleClick(event) {
   fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
     .then((response) => response.json())
     .then((dataApi) => {
+
       //guardo los datos en el array que he creado.
       serieList = dataApi;
 
-      
       //bucle listado
       for (const serie of dataApi) {
+
         //me pone la imagen por defecto en las que no la tienen.
         const imgDefault = `//via.placeholder.com/210x295/ffffff/666666/?text=TV`;
         const imgSrc =
         serie.show.image && serie.show.image.medium ? serie.show.image.medium : imgDefault;
-
 
         //me pinta la lista de series en la seccion. 
         serieSection.innerHTML += `<li id=${serie.show.id} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${serie.show.name}</h2></li>`;
@@ -44,16 +43,13 @@ function handleClick(event) {
       addEventToSeries();
     });
 }
-//handleFavorites crea las series en favoritos a traves de su id (donde se escucha).
+//handleFavorites crea las series en favoritos a traves de su id (donde se escucha) number , para que me lo busque por numero y no por string.
 function handleFavorites(event) {
   event.preventDefault();
- 
   const idSerie = Number(event.currentTarget.id);
-  
-  const serieFavorite = serieList.find((serie)=> serie.show.id === idSerie);
-  
-  console.log(serieFavorite);
 
+  //array de fav = array api busca la id serie y es estrictamente igual al id serie
+  serieFavorite = serieList.find((serie)=> serie.show.id === idSerie);
   //añado o elimino la clase al clicar.
   event.currentTarget.classList.add("cardFavorite");
   event.currentTarget.classList.remove("card");
@@ -66,10 +62,8 @@ function handleFavorites(event) {
 
   //ponga idSerie o serieFavorite hace lo mismo
   favoriteSection.innerHTML += `<li id=${serieFavorite} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${serieFavorite.show.name}</h2></li>`;
-  //localStorage.setItem("serie",JSON.stringify(serieFavorite));
+  localStorage.setItem("serie",JSON.stringify(serieFavorite));
   }
-
-
 
 // addEventToSeries  me permite añadir las series a mi ul y las favoritas elegidas (click) a mi lista de series favoritas.
 function addEventToSeries() {
