@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-content: center;
+  &_series {
+    &_title{
+      text-align: center;
+      padding-top: 30px;
+      text-shadow:
+      4px 4px 0px #72ebe1,
+      9px 8px 0px #186a66;
+      font-size: 30px;
+    }
+    &_ul {
+      cursor: pointer;
+      list-style: none;
+      margin-top: 20px;
+    }
+  }
+}
