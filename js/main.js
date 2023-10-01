@@ -43,10 +43,10 @@ function handleClick(event) {
       addEventToSeries();
     });
 }
-//handleFavorites crea las series en favoritos a traves de su id (donde se escucha) number , para que me lo busque por numero y no por string.
+//handleFavorites crea las series en favoritos a traves de su id (donde se escucha) parseInt , para que me lo busque por numero y no por string.
 function handleFavorites(event) {
   event.preventDefault();
-  const idSerie = Number(event.currentTarget.id);
+  const idSerie = parseInt(event.currentTarget.id);
 
   //array de fav = array api busca la id serie y es estrictamente igual al id serie
   serieFavorite = serieList.find((serie)=> serie.show.id === idSerie);
