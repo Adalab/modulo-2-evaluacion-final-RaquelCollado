@@ -49,3 +49,12 @@
     padding: 10px 10px;
     margin-top: 20px;
   }
+  .btnX{
+    margin-top: 20px;
+    display: flex;
+    align-content: left;
+    &_trash{
+    width: 30px;
+    background-color: $color-bg;
+}
+  }

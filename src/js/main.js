@@ -5,6 +5,7 @@ const inputElement = document.querySelector('.js-input');
 const btnElement = document.querySelector('.js-btn');
 const serieSection = document.querySelector('.js-ulseries');
 const favoriteSection = document.querySelector('.js-ulFavorites');
+const rstFav = document.querySelector('.js-btnX');
 
 //estas son mis variables para guardar la info que me genera la API.
 let serieList = [];
@@ -23,6 +24,8 @@ function handleClick(event) {
     .then((dataApi) => {
       //guardo los datos en el array que he creado.
       serieList = dataApi;
+      //vacio el input despues de cada busqueda.
+      inputElement.value = '';
       //bucle listado
       for (const serie of dataApi) {
         //me pone la imagen por defecto en las que no la tienen.
@@ -38,8 +41,8 @@ function handleClick(event) {
       addEventToSeries();
     });
 }
-function renderFavorite(){
-  favoriteSection.innerHTML= '';
+function renderFavorite() {
+  favoriteSection.innerHTML = '';
   for (const serie of serieFavorite) {
     //me pone la imagen por defecto en las que no la tienen.
     const imgDefault = `//via.placeholder.com/210x295/ffffff/666666/?text=TV`;
@@ -47,9 +50,8 @@ function renderFavorite(){
       serie.show.image && serie.show.image.medium
         ? serie.show.image.medium
         : imgDefault;
-
     //me pinta la lista de series en la seccion.
-    favoriteSection.innerHTML += `<li id=${serie.show.id} class="card js-card" ><img class="image" src=${imgSrc} alt=""><h2>${serie.show.name}</h2></li>`;
+    favoriteSection.innerHTML += `<li id=${serie.show.id} class="card js-card"><img class="image" src=${imgSrc} alt=""><h2>${serie.show.name}</h2></li>`;
     event.currentTarget.classList.add('cardFavorite');
   }
 }
@@ -66,8 +68,10 @@ function handleFavorites(event) {
     serieFavorite.push(serieClick);
   } else {
     event.currentTarget.classList.remove('card');
+    //splice para que no me deje coger la misma serie
     serieFavorite.splice(index, 1);
     const favoriteSerie = document.getElementById(idSerie);
+    //dejar con la clase de seleccionada
     if (favoriteSerie) {
       event.currentTarget.classList.remove('card');
       event.currentTarget.classList.add('cardFavorite');
@@ -83,4 +87,14 @@ function addEventToSeries() {
     serie.addEventListener('click', handleFavorites);
   }
 }
+//vacio el listado completo de favoritos y dejo la pagina por defecto (location.reload))
+function handleResetFav(event) {
+  event.preventDefault();
+  serieFavorite = [];
+  favoriteSection.innerHTML = '';
+  localStorage.removeItem('serieFavorite');
+  inputElement.value = '';
+  location.reload();
+}
+rstFav.addEventListener('click', handleResetFav);
 btnElement.addEventListener('click', handleClick);
