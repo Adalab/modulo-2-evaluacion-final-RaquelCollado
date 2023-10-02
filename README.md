@@ -32,7 +32,7 @@ Marca tus series favoritas haciendo clic en cada una de ellas.
 ### 💾 Almacenamiento Local:   
 Tus series favoritas se guardarán en el almacenamiento local del navegador para que puedas acceder a ellas más tarde.
 
-💻 [Puedes acceder a una versión beta de la aplicación aquí.](URL_DEL_ENLACE)
+💻 [Puedes acceder a una versión beta de la aplicación aquí.](http://beta.adalab.es/modulo-2-evaluacion-final-RaquelCollado/)
 ## 📌 Tecnologías Utilizadas
 - HTML
 - SCSS
